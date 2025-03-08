@@ -1,7 +1,3 @@
-//
-// Created by LilSriSri on 3/6/2025.
-//
-
 #include "stack.h"
 #include <iostream>
 using namespace std;
@@ -12,7 +8,9 @@ Stack::Stack() {
 }
 
 Stack::~Stack() {
-    //If empty, remove everything
+    while (!isEmpty()) { //While stack is not empty, keep popping nodes
+      pop();
+      }
 }
 
 bool Stack::isEmpty() { //Check if the stack is empty
@@ -39,4 +37,10 @@ char Stack::pop() { //Remove the top node and return its valie
     return data; //Return the value of the "popped" node
 }
 
+char Stack::peek() { //Return the value of the top node
+  if (isEmpty()) {
+    return '\0'; //If stack is empty, return a null character
+    }
+    return top->data; //Return value at top node
+}
 
